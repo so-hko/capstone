@@ -5,7 +5,7 @@ import requests
 from google.cloud import vision
 import io
 client = vision.ImageAnnotatorClient()
-path = 'C:\\Users\\USER\\Desktop\\textmining\\image\\t.png'
+path = '/home/ec2-user/capstone/capstoneProject/visionAPI/image/t.png'
 detectedText = []
 class API():
     def imagedetection(path):

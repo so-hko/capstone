@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z3*nefwru_-a3j0zvy5!^3od6g9cjxfm1@mp)zgba#gwi1hr*9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.amazonaws.com',]
 
 
 # Application definition
@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework', 
-        #'visionAPI.apps.VisionapiConfig',
+    #'visionAPI.apps.VisionapiConfig',
     'visionAPI',
+    'blog.apps.BlogConfig'
 ]
 
 MIDDLEWARE = [
@@ -80,14 +81,14 @@ WSGI_APPLICATION = 'capstoneProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': 'sohyang',
-        #'UWER': 'root',
-        #'PASSWORD': 'sohyang7291?',
-        #'HOST': 'localhost',
-        #'PORT': '3306',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'capstone_db',
+        'UWER': 'root',
+        'PASSWORD': 'wlgP123$%^',
+        'HOST': 'localhost',
+        'PORT': '3306',
     },
 }
 
@@ -115,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/seoul'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
