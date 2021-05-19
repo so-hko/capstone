@@ -4,11 +4,17 @@ import requests
 """Detects text in the file."""
 from google.cloud import vision
 import io
+import os
+import subprocess
+
 client = vision.ImageAnnotatorClient()
-path = '/home/ec2-user/capstone/capstoneProject/visionAPI/image/t.png'
+#path = '/home/ec2-user/capstone/capstoneProject/visionAPI/image/t.png'
+path = '/home/ec2-user/capstone/capstoneProject/visionAPI/image/게보린.jpg'
+
 detectedText = []
 class API():
     def imagedetection(path):
+       # os.system("export GOOGLE_APPLICATION_CREDENTIALS='/home/ec2-user/capstone/capstoneProject/visionAPI/My_First_Project-51cda441fdd3.json'")
         with io.open(path, 'rb') as image_file:
             content = image_file.read()
 

@@ -1,0 +1,1 @@
+print({{medicine.name}})

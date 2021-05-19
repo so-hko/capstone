@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework', 
-    #'visionAPI.apps.VisionapiConfig',
-    'visionAPI',
-    'blog.apps.BlogConfig'
+    'visionAPI.apps.VisionapiConfig',
+    #'visionAPI',
+    'blog.apps.BlogConfig',
+    #'jsondata.apps.JsondataConfig',
+    'template.apps.TemplateConfig',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'capstoneProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'/home/ec2-user/capstone/capstoneProject/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,6 +91,11 @@ DATABASES = {
         'PASSWORD': 'wlgP123$%^',
         'HOST': 'localhost',
         'PORT': '3306',
+        'OPTIONS': {'charset': 'utf8mb4'},
+       #'TEST': {
+           # 'CHARSET':'utf8',
+           # 'COLLATION':'utf8_general_ci',
+          #},
     },
 }
 
