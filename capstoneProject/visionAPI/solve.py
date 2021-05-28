@@ -1,34 +1,17 @@
 #-*- coding: utf-8 -*-
 import requests
 import editdistance
-import imagedetection
-import getDrugNameDB
+from . import imageDetectionAPI
+from . import accessDB
+from . import getInfo
 
 def getTextMiningResult(path):
-    data = imagedetection.imagedetection(path)
+    data = imageDetectionAPI.imagedetection()
     return data.split('\n')
-
-
-'''
-
-#use file version
-def parseDrugName(filename):
-    f = open(filename, 'r')
-
-    druglist = []
-    while True:
-        line = f.readline()[:-1]
-        if not line: break
-        if len(line) < 2 : continue
-        druglist.append(line)
-    f.close()
-    return druglist
-
-'''
 
 #use DB
 def parseDrugName():
-    lt = getDrugNameDB.getDrugNameDB()
+    lt = accessDB.getDrugNameDB()
     #change to list
     if(str(type(lt)) == "<class 'tuple'>"):
         data = [item for t in lt for item in t]
@@ -64,19 +47,15 @@ def calcCorrRate(druglist, parselist):
     return entireMatchingRate
 
 def extractDrugName():
-    path = "/home/ec2-user/capstone/capstoneProject/visionAPI/image/게보린.jpg"
+    getInfo.getImage()
+    path = "/home/ec2-user/capstone/capstoneProject/visionAPI/drug_image.jpg"
     druglist = parseDrugName()
     parselist = getTextMiningResult(path)
     entireMatchingRate = calcCorrRate(druglist, parselist)
-
-    #for i in range(0,len(entireMatchingRate)-1):
-    #    if(entireMatchingRate[i] > 50):
-    #        print("%s_%0.2f"%(druglist[i], entireMatchingRate[i]));
     i = entireMatchingRate.index(max(entireMatchingRate))
     result = druglist[i]
     #print(entireMatchingRate[i])
-    #print("검색결과 : " + result)
+    print("검색결과 : " + result)
     return result
 
-if __name__ == '__main__':
-    extractDrugName()
+extractDrugName()

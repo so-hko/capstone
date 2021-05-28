@@ -3,5 +3,7 @@ from . import views
 
 app_name = 'visionAPI'
 urlpatterns = [
-    path('', views.API.home, name = 'home'),
+    path('result/', views.API.home, name = 'home'),
+    path('image/', views.getInfoFromAndroid.getImage, name = 'image'),
+    path('lanCode/', views.getInfoFromAndroid.getLanCode, name = 'lan_code'),
 ]

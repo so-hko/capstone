@@ -18,17 +18,20 @@ django.setup()
 
 from blog.models import *  # 2. App이름.models
 
-CSV_PATH = '/home/ec2-user/capstone/capstoneProject/blog/model.csv'  # 3. csv 파일 경로
+CSV_PATH = '/home/ec2-user/capstone/capstoneProject/blog/pill.csv'  # 3. csv 파일 경로
 
-with open(CSV_PATH, newline='', encoding='CP949') as csvfile:  # 4. newline =''
+with open(CSV_PATH, newline='', encoding='utf-8-sig') as csvfile:  # 4. newline =''
     data_reader = csv.DictReader(csvfile)
 
     for row in data_reader:
         print(row)
-        medicine.objects.create(  # 5. class명.objects.create
-            id=row['id'],
+        Pill.objects.create(  # 5. class명.objects.create
             name=row['name'],
-            ingredient=row['ingredient'],
-            effect=row['effect'],
-            dosage=row['dosage'],
+            maker=row['maker'],
+            shape=row['shape'],
+            fcolor=row['fcolor'],
+            bcolor=row['bcolor'],
+            fmark=row['fmark'],
+            bmark=row['bmark'],
+            image=row['image'],
         )

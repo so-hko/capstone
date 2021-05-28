@@ -6,6 +6,8 @@ from google.cloud import vision
 import io
 import os
 import subprocess
+from . import solve
+from . import accessDB
 
 client = vision.ImageAnnotatorClient()
 #path = '/home/ec2-user/capstone/capstoneProject/visionAPI/image/t.png'
@@ -13,46 +15,29 @@ path = '/home/ec2-user/capstone/capstoneProject/visionAPI/image/게보린.jpg'
 
 detectedText = []
 class API():
-    def imagedetection(path):
-       # os.system("export GOOGLE_APPLICATION_CREDENTIALS='/home/ec2-user/capstone/capstoneProject/visionAPI/My_First_Project-51cda441fdd3.json'")
-        with io.open(path, 'rb') as image_file:
-            content = image_file.read()
-
-        image = vision.Image(content=content)
-
-        price_candidate = []
-        card_number_candidate = []
-        date_candidate = []
-
-        response = client.text_detection(image=image)
-        texts = response.text_annotations
-        #print('Texts:')
-
-        for text in texts:
-            content = text.description
-            content = content.replace(',','')
-            print('\n"{}"'.format(content))
-            detectedText.append(text.description)
-
-        if response.error.message:
-            raise Exception(
-                '{}\nFor more info on error messages, check: '
-                'https://cloud.google.com/apis/design/errors'.format(
-                    response.error.message))
-
-        return detectedText
+    def sendDrugInfo():
+        drugName = solve.extractDrugName()
+        data = accessDB.getDrugInformation(drugName)
+        #print(data)
+        data = list(data[0])
+        col = ['name','ingredient','dosage','effect','caution','nation']
+        str = ""
+        for i in range(0,6):
+            str = str + col[i] + ":" + data[i] + "@!#"
+        return str
 
     def home(self):
-        
-        #response = requests.get(url)
-        #data = response.json()
-        #print(data)
-
-        data = API.imagedetection(path)
-
+        data = API.sendDrugInfo()
         
         context = {
             'data' : data
         }
         
         return render(self,'visionAPI/home.html', context)
+    
+
+class getInfoFromAndroid():
+    def getImage(self):
+        return render(self, 'visionAPI/image.html', )
+    def getLanCode(self):
+        return render(self, 'visionAPI/lanCode.html',)
