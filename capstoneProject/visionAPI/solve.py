@@ -1,9 +1,9 @@
 #-*- coding: utf-8 -*-
 import requests
 import editdistance
-from . import imageDetectionAPI
-from . import accessDB
-from . import getInfo
+import imageDetectionAPI
+import accessDB
+import getInfo
 
 def getTextMiningResult(path):
     data = imageDetectionAPI.imagedetection()
@@ -39,10 +39,9 @@ def calcCorrRate(druglist, parselist):
                         matrix[i][j] = max(matrix[i - 1][j], matrix[i][j - 1])
         
             lcs = matrix[-1][-1]
-            if(lcs > 2):
-                ratelist.append(lcs**3 - editdis)
+            ratelist.append(lcs**3 - editdis)
 
-        entireMatchingRate.append(sum(ratelist))
+        entireMatchingRate.append(max(ratelist))
 
     return entireMatchingRate
 
@@ -57,5 +56,3 @@ def extractDrugName():
     #print(entireMatchingRate[i])
     print("검색결과 : " + result)
     return result
-
-extractDrugName()

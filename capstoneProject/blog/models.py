@@ -36,10 +36,10 @@ class Pill(models.Model):
     name = models.CharField(max_length=255,primary_key=True)
     maker = models.CharField(max_length=20)
     shape = models.CharField(max_length=10)
-    fcolor = models.CharField(max_length=10)
-    bcolor = models.CharField(max_length=10, null=True)
-    fmark = models.CharField(max_length=20)
-    bmark = models.CharField(max_length=10, null=True)
+    fcolor = models.CharField(max_length=10, null=True, blank=True)
+    bcolor = models.CharField(max_length=10, null=True, blank=True)
+    fmark = models.CharField(max_length=20, null=True, blank=True)
+    bmark = models.CharField(max_length=20, null=True, blank=True)
     image = models.ImageField(
             blank=True,
             upload_to="pill_image"
@@ -47,4 +47,8 @@ class Pill(models.Model):
 
     def __str__(self):
         return self.name
+
+class Photo(models.Model):
+    post = models.ForeignKey(OTCInfo, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 

@@ -11,6 +11,14 @@ admin.site.register(ETCInfo, ETC_InfoInfo)
 
 class PillInfo(admin.ModelAdmin):
      list_display = ('name', 'maker', 'shape', 'fcolor', 'bcolor', 'fmark', 'bmark', 'image')
+
+"""
+class PhotoInline(admin.TabularInline):
+    model = Photo
+
+class PostAdmin(admin.ModelAdmin):
+    inlines = [PhotoInline, ]
+"""
 admin.site.register(Pill, PillInfo)
 
 

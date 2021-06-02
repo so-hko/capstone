@@ -1,0 +1,2 @@
+import getInfo
+getInfo.getLanguage()

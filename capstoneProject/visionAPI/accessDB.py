@@ -1,4 +1,6 @@
 import pymysql
+import solve
+
 
 conn = pymysql.connect(
         host = 'localhost',
@@ -29,3 +31,13 @@ def getDrugInformation(drugname):
     finally:
         cur.close()
         #conn.close()
+
+def getImagePath():
+    try : 
+        cur = conn.cursor()
+        drugname = solve.extractDrugName()
+        cur.execute('select image from blog_otcinfo where `name` = %s',[drugname])
+        return cur.fetchall()
+
+    finally:
+        cur.close()

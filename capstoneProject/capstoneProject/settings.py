@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-z3*nefwru_-a3j0zvy5!^3od6g9cjxfm1@mp)zgba#gwi1hr*9
 DEBUG = True
 
 ALLOWED_HOSTS = ['.amazonaws.com',]
+#ALLOWED_HOSTS = [*]
 
 
 # Application definition
@@ -40,12 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', 
     'visionAPI.apps.VisionapiConfig',
-    #'visionAPI',
-    'blog.apps.BlogConfig',
-    #'jsondata.apps.JsondataConfig',
-    'template.apps.TemplateConfig',
-    #'pillAPI.apps.PillapiConfig',
-    
+    'blog',
+    'pill.apps.PillConfig',
+    'sendInfo.apps.SendinfoConfig',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +63,7 @@ ROOT_URLCONF = 'capstoneProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'/home/ec2-user/capstone/capstoneProject/template'],
+        'DIRS':[os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
