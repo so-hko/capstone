@@ -1,6 +1,6 @@
 # Meditory : 이미지 인식 기반 의약정보 제공 시스템
 project for capstone, computer science of Kyonggi University <br>
-## 0. 시스템 구상도
+## 0. 시스템 구상도 1
 <p align='center'><img src=https://user-images.githubusercontent.com/64884935/223362245-f3a85e3d-fd13-4a90-b1e4-3af09ceca7fd.png height="350px" width="800px></p>
 
  ##      
