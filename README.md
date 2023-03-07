@@ -24,4 +24,4 @@ project for capstone, computer science of Kyonggi University <br>
 ### 4-1. 프로젝트 역할분담
 #### 4-1-1. 프로젝트 역할분담
 
-
+ㄹ
