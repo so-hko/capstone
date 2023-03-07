@@ -23,5 +23,3 @@ project for capstone, computer science of Kyonggi University <br>
  ## 3. 캡스톤디자인 연구내용
 ### 4-1. 프로젝트 역할분담
 #### 4-1-1. 프로젝트 역할분담
-
-ㄹ
