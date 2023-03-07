@@ -10,7 +10,7 @@ project for capstone, computer science of Kyonggi University <br>
 
 
 ## 2. 주요 기술 접근 방법
-**   **
+
  ### 2-1. GOOGLE VISION API를 이용한 이미지 내 텍스트 디텍션
  본 프로젝트에서는 Google Vision API와 GOOGLE Translate API를 사용하여 이미지 탐지와 번역을 위한 자연어 처리를 진행한다. Google Vision API는 사용자가 이미지를 파일 형식으로 업로드하고 나면 이미지 속에서 블록 형태로 라벨을 할당한다. 라벨 할당 후 OCR 기술을 사용하여 라벨 속의 텍스트를 인식하고 데이터를 수집한다. 수집된 데이터를 분석하고 통계 처리가 가능한 형태로 변환시키는 자연어 처리 과정을 거쳐 사용자에게 읽어낸 텍스트를 전송한다.
 <br>● OCR : 
